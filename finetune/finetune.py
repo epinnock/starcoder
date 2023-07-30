@@ -83,9 +83,9 @@ def get_args():
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--num_workers", type=int, default=None)
     parser.add_argument("--output_dir", type=str, default="./checkpoints")
-    parser.add_argument("--log_freq", default=100, type=int)
-    parser.add_argument("--eval_freq", default=100, type=int)
-    parser.add_argument("--save_freq", default=1000, type=int)
+    parser.add_argument("--log_freq", default=50, type=int)
+    parser.add_argument("--eval_freq", default=300, type=int)
+    parser.add_argument("--save_freq", default=300, type=int)
 
     return parser.parse_args()
 
@@ -195,7 +195,6 @@ class ConstantLengthDataset(IterableDataset):
 def create_datasets(tokenizer, args):
     dataset = load_dataset(
         args.dataset_name,
-        data_dir=args.subset,
         split=args.split,
         use_auth_token=True,
         num_proc=args.num_workers if not args.streaming else None,
