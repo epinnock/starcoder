@@ -123,7 +123,8 @@ def print_trainable_parameters(model):
 
 def prepare_sample_text(example, input_column_name="prompt", output_column_name="completion"):
     """Prepare the text from a sample of the dataset."""
-    text = f"Question: {example[input_column_name]}\n\nAnswer: {example[output_column_name]}"
+    
+    text = f"Below is an instruction that describes a task. Write a response that appropriately completes the request.\n\nInstruction: {example[input_column_name.strip()]}\n\nResponse: {example[output_column_name.strip()]}"
     return text
 
 
@@ -286,7 +287,7 @@ def run_training(args, train_data, val_data):
         ddp_find_unused_parameters=False,
     )
 
-    trainer = Trainer(model=model, args=training_args, train_dataset=train_data, eval_dataset=val_data, callbacks=[SavePeftModelCallback, LoadBestPeftModelCallback])
+    trainer = Trainer(model=model, args=training_args, train_dataset=train_data, eval_dataset=val_data, callbacks=[SavePeftModelCallback])
 
     print("Training...")
     trainer.train()

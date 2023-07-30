@@ -1,5 +1,8 @@
 tqdm==4.65.0
-transformers==4.28.1
 datasets==2.11.0
 huggingface-hub==0.13.4
 accelerate==0.18.0
+peft==0.4.0
+wandb
+bitsandbytes==0.41.0
+transformers==4.28.1
