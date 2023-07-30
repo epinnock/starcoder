@@ -6,3 +6,4 @@ peft==0.4.0
 wandb
 bitsandbytes==0.41.0
 transformers==4.28.1
+scipy
