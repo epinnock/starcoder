@@ -5,3 +5,7 @@ pip install -r requirements.txt
 huggingface-cli login
 # login to wandb
 wandb login
+# navigate to finetune folder
+cd finetune
+#make checkpoints folder
+mkdir checkpoints
